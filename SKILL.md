@@ -53,32 +53,21 @@ Before formal translation, read enough of the entire paper to establish an inter
 
 Do not present this internal map or a preliminary summary unless the user asks for it.
 
-### 2. Maintain a Global Glossary
+### 2. Maintain a Global, Domain-Aware Glossary
 
 Create an internal glossary containing the English term, preferred Chinese translation, abbreviation, and any context restriction.
 
 - On first meaningful appearance, normally use `中文术语（English term, abbreviation）`.
 - Afterwards, use the chosen Chinese term or established abbreviation consistently.
+- Determine the paper's field and subfield before fixing translations for ambiguous terms.
+- Prefer terminology established in current Mainland Chinese academic writing for that field.
 - Distinguish similar but non-equivalent concepts.
-- A terminology example is guidance, not a substitute for contextual judgment.
+- Do not reuse a terminology mapping from an unrelated discipline merely because the English word is identical.
+- Treat terminology examples and domain references as guidance, not as substitutes for the paper's definitions and surrounding context.
 
-Common manufacturing choices include:
+If the paper is substantially about materials science, mechanical or manufacturing engineering, machining, surface engineering, welding or joining, or additive manufacturing, read [references/materials-manufacturing.md](references/materials-manufacturing.md) before formal translation. Do not read or apply that reference to unrelated fields merely because generic words such as `material`, `process`, or `surface` appear.
 
-| English | Preferred Chinese |
-|---|---|
-| material removal rate | 材料去除率 |
-| surface roughness | 表面粗糙度 |
-| surface morphology | 表面形貌 |
-| subsurface damage | 亚表面损伤 |
-| polishing | 抛光 |
-| grinding | 磨削 |
-| lapping | 研磨 / 研抛，按语境确定 |
-| abrasive / abrasive grain | 磨料 / 磨粒 |
-| workpiece | 工件 |
-| feed rate | 进给速度；若为每齿或每转进给量，应按原定义翻译 |
-| tool wear | 刀具磨损 / 工具磨损，按工具类型确定 |
-| experimental setup | 实验装置 / 实验系统，按语境确定 |
-| build direction | 构建方向 / 成形方向，全文统一 |
+For a field without a matching reference, derive the glossary from the complete paper and established usage in that field; a domain reference is not required.
 
 ### 3. Translate by Semantic Section
 
