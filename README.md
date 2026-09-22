@@ -15,6 +15,7 @@
 - 对扫描件和复杂双栏版式进行阅读顺序与 OCR 风险检查。
 - 生成 PDF 时进行逐页渲染、内容覆盖和排版质量检查。
 - 对无法可靠识别的内容明确标注，不凭空猜测。
+- 仅在论文领域匹配时按需读取专业 reference，避免把某一学科的术语映射套用于其他领域。
 
 ## 默认行为
 
@@ -30,6 +31,14 @@
 | 参考文献 | 保留完整列表及原始语言，除非用户明确要求翻译 |
 
 仅中文是默认的**内容模式**，不是固定的文件格式。只有在用户要求中文 PDF 时，Skill 才会生成并验证 PDF。双语对照、学习笔记、术语表、参数表和文献综述笔记均需单独提出。
+
+## 领域参考文件
+
+`SKILL.md` 保持跨学科通用；专业术语规则通过 `references/` 按需加载。第一版包含：
+
+- [`materials-manufacturing.md`](references/materials-manufacturing.md)：适用于材料科学、机械与制造工程、机械加工、表面工程、焊接与连接、增材制造。
+
+只有当论文实质上属于上述领域时才读取该文件。其他学科直接根据论文全文和对应领域的学术惯例建立内部术语表，不会自动套用材料制造术语。
 
 ## 安装
 
@@ -49,14 +58,18 @@ $skill-installer 请从 https://github.com/sanqiao624/academic-pdf-translation-s
 
 ```text
 ~/.agents/skills/academic-pdf-translation/
-└── SKILL.md
+├── SKILL.md
+└── references/
+    └── materials-manufacturing.md
 ```
 
 部分现有 Codex 配置使用以下兼容位置：
 
 ```text
 ~/.codex/skills/academic-pdf-translation/
-└── SKILL.md
+├── SKILL.md
+└── references/
+    └── materials-manufacturing.md
 ```
 
 ### 安装到单个仓库
@@ -65,7 +78,9 @@ $skill-installer 请从 https://github.com/sanqiao624/academic-pdf-translation-s
 
 ```text
 <repository>/.agents/skills/academic-pdf-translation/
-└── SKILL.md
+├── SKILL.md
+└── references/
+    └── materials-manufacturing.md
 ```
 
 ## 使用方法
@@ -96,7 +111,7 @@ $academic-pdf-translation
 ## 工作原则
 
 1. 先检查全文结构、研究主题、方法、变量、图表、公式和参考文献组织。
-2. 建立内部全局术语表，确定术语、缩写及其适用语境。
+2. 识别论文所属领域，按需读取匹配的专业 reference，再建立内部全局术语表。
 3. 按语义完整的章节或段落组连续翻译。
 4. 检查句子覆盖、术语一致性以及数字、单位、符号和引用对应关系。
 5. 对全文进行全局审校；如交付 PDF，再进行逐页渲染和视觉检查。
@@ -128,6 +143,8 @@ $academic-pdf-translation
 academic-pdf-translation-skill/
 ├── SKILL.md   # Skill 元数据、工作流程和质量要求
 ├── README.md  # 安装、使用及发布说明
+├── references/
+│   └── materials-manufacturing.md  # 材料与制造领域的术语和高风险检查
 └── LICENSE    # MIT License
 ```
 
